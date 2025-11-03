@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @font-face {
   font-family: "wendy";
@@ -85,6 +86,7 @@ nav .buttom .Login button:hover {
 
 section {
   padding: 0vw 3vw;
+  /* 🔹 Move media queries to root level */
 }
 section .hero_div {
   display: flex;
@@ -98,13 +100,14 @@ section .hero_div .left_side {
   width: 100%;
 }
 section .hero_div .left_side .text_dis {
-  font-variation-settings: "wdth" 115;
   width: 100%;
+  text-align: center;
 }
 section .hero_div .left_side .text_dis .home_hero_heading {
   font-size: clamp(1.8rem, 4.5vw, 3.5rem);
   line-height: 1.5em;
-  text-align: center;
+  text-align: inherit;
+  margin: 0 auto;
 }
 section .hero_div .left_side .text_dis .home_hero_subheading {
   font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -113,6 +116,7 @@ section .hero_div .left_side .text_dis .home_hero_subheading {
   font-size: 1em;
   max-width: 30rem;
   text-align: center;
+  margin: 0 auto;
 }
 section .hero_div .left_side .home-hero__search-container {
   width: 100%;
@@ -124,6 +128,7 @@ section .hero_div .left_side .home-hero__search-container .left_side_buttom {
   gap: 15px;
   padding: 30px 0;
   align-items: center;
+  justify-content: center;
 }
 section .hero_div .left_side .home-hero__search-container .left_side_buttom button {
   display: flex;
@@ -168,9 +173,6 @@ section .hero_div .left_side .home-hero__search-container .left_side_buttom butt
   background-color: black;
   color: white;
 }
-section .hero_div .left_side .home-hero__search-container .left_side_buttom button:nth-child(1):hover span img {
-  filter: invert(1);
-}
 section .hero_div .left_side .home-hero__search-container .search_bar {
   position: relative;
   width: 90%;
@@ -178,12 +180,12 @@ section .hero_div .left_side .home-hero__search-container .search_bar {
 section .hero_div .left_side .home-hero__search-container .search_bar input {
   padding: 0 1.3vw;
   width: 100%;
-  height: 3.2em;
+  height: 3.5em;
   background-color: #f1efef;
   outline: none;
   border-radius: 20px;
   border: solid transparent;
-  font-size: 1rem;
+  font-size: clamp(13px, 2.5vw, 16px);
 }
 section .hero_div .left_side .home-hero__search-container .search_bar input:focus {
   border: solid rgb(249, 170, 203) 1px;
@@ -234,6 +236,8 @@ section .hero_div .left_side .home-hero__search-container .categories .cat_butto
   border: 1px solid #ebbaf7;
   padding: 5px 18px;
   border-radius: 6vw;
+  color: black;
+  transition: all 0.3s ease;
 }
 section .hero_div .left_side .home-hero__search-container .categories .cat_buttom a:hover {
   background-color: rgba(255, 255, 255, 0.877);
@@ -251,9 +255,27 @@ section .hero_div .right_side .bg-video {
   display: block;
 }
 @media (max-width: 1024px) {
-  section .hero_div .right_side,
-  section .hero_div .right_side video {
+  section .hero_div .right_side {
     display: none;
+  }
+  section .hero_div .left_side .home-hero__search-container .search_bar {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  section .hero_div .left_side {
+    align-items: flex-start;
+  }
+  section .hero_div .left_side .text_dis {
+    text-align: left;
+  }
+  section .hero_div .left_side .text_dis .home_hero_heading,
+  section .hero_div .left_side .text_dis .home_hero_subheading {
+    text-align: left;
+    margin: 0;
+  }
+  section .hero_div .left_side .home-hero__search-container .left_side_buttom {
+    justify-content: flex-start;
   }
 }
 

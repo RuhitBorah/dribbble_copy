@@ -57,9 +57,7 @@ nav {
             }
         }
 
-        .menu {
-            
-        }
+
     }
 
     .buttom {
@@ -114,7 +112,6 @@ section {
         justify-content: space-between;
         box-sizing: border-box;
 
-
         .left_side {
             display: flex;
             flex-direction: column;
@@ -122,13 +119,15 @@ section {
             width: 100%;
 
             .text_dis {
-                font-variation-settings: "wdth" 115;
+                // font-variation-settings: "wdth" 115;
                 width: 100%;
+                text-align: center;
 
                 .home_hero_heading {
                     font-size: clamp(1.8rem, 4.5vw, 3.5rem);
                     line-height: 1.5em;
-                    text-align: center;
+                    text-align: inherit;
+                    margin: 0 auto;
                 }
 
                 .home_hero_subheading {
@@ -138,8 +137,8 @@ section {
                     font-size: 1em;
                     max-width: 30rem;
                     text-align: center;
+                    margin: 0 auto;
                 }
-
             }
 
             .home-hero__search-container {
@@ -152,6 +151,7 @@ section {
                     gap: 15px;
                     padding: 30px 0;
                     align-items: center;
+                    justify-content: center;
 
                     button {
                         display: flex;
@@ -165,7 +165,7 @@ section {
                         font-size: 16px;
                         cursor: pointer;
                         background-color: transparent;
-                        color: black; // default text color
+                        color: black;
                         transition: all 0.3s ease;
 
                         span {
@@ -175,7 +175,7 @@ section {
                             img {
                                 width: 20px;
                                 height: 20px;
-                                filter: invert(0); // default black icon
+                                filter: invert(0);
                                 transition: all 0.3s ease;
                             }
                         }
@@ -184,29 +184,24 @@ section {
                             background-color: black;
                             color: white;
 
-                            // ✅ Make icon white on hover for all buttons except first
                             span img {
-                                filter: invert(1); // white icon on hover
+                                filter: invert(1);
                             }
                         }
                     }
 
-                    // ✅ First button active style
+                    // First button active
                     button:nth-child(1) {
                         background-color: black;
                         color: white;
 
                         span img {
-                            filter: invert(1); // white icon
+                            filter: invert(1);
                         }
 
                         &:hover {
                             background-color: black;
                             color: white;
-
-                            span img {
-                                filter: invert(1); // keep white icon
-                            }
                         }
                     }
                 }
@@ -215,16 +210,15 @@ section {
                     position: relative;
                     width: 90%;
 
-
                     input {
                         padding: 0 1.3vw;
                         width: 100%;
-                        height: 3.2em;
+                        height: 3.5em;
                         background-color: #f1efef;
                         outline: none;
                         border-radius: 20px;
                         border: solid transparent;
-                        font-size: 1rem;
+                        font-size: clamp(13px, 2.5vw, 16px);
 
                         &:focus {
                             border: solid rgb(249, 170, 203) 1px;
@@ -251,7 +245,6 @@ section {
                             object-fit: cover;
                             filter: invert(1);
                         }
-
                     }
                 }
 
@@ -281,6 +274,8 @@ section {
                             border: 1px solid #ebbaf7;
                             padding: 5px 18px;
                             border-radius: 6vw;
+                            color: black;
+                            transition: all 0.3s ease;
 
                             &:hover {
                                 background-color: rgba(255, 255, 255, 0.877);
@@ -288,15 +283,12 @@ section {
                             }
                         }
                     }
-
                 }
             }
-
         }
 
         .right_side {
             width: 45%;
-
 
             .bg-video {
                 width: 100%;
@@ -308,14 +300,37 @@ section {
         }
     }
 
+    /* 🔹 Move media queries to root level */
     @media (max-width: 1024px) {
-
-        .hero_div .right_side,
-        .hero_div .right_side video {
+        .hero_div .right_side {
             display: none;
         }
-    }
 
+        .hero_div .left_side .home-hero__search-container .search_bar {
+            width: 100%;
+        }
+    }   
+
+    @media (min-width: 768px) {
+        .hero_div .left_side {
+            align-items: flex-start;
+        }
+
+        .hero_div .left_side .text_dis {
+            text-align: left;
+
+            .home_hero_heading,
+            .home_hero_subheading {
+                text-align: left;
+                margin: 0;
+            }
+        }
+
+        .hero_div .left_side .home-hero__search-container .left_side_buttom {
+            justify-content: flex-start;
+        }
+
+    }
 }
 
 
